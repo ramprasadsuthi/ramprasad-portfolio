@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramprasad Suthi | Technology Leader & Mentor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b1c2d;      /* MR Technologies Navy */
+      --secondary: #0ea5e9;    /* MR Technologies Blue */
+      --accent: #22c55e;       /* MR Technologies Green */
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --muted: #64748b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: #fff;
+      padding: 60px 20px; /* reduced hero height */
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #e5e7eb;
+      margin-top: 15px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(34, 211, 238, 0.15);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px 10px; /* reduced vertical spacing */
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 60px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 20px;
+      color: var(--secondary);
+    }
+
+    .meta {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .skills span {
+      background: #eff6ff;
+      color: var(--secondary);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    footer {
+      background: #020617;
+      color: #cbd5f5;
+      padding: 30px 20px; /* compact footer */
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      h2::after { left: 50%; transform: translateX(-50%); }
+    }
+
+    /* Brand row alignment */
+    .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    }
+
+    /* Logo animation */
+    .logo-animate {
+    height: 60px;
+    opacity: 0;
+    transform: scale(0.85);
+    animation: logoReveal 1s ease-out forwards;
+    }
+
+    /* Badge animation */
+    .badge-animate {
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: badgeReveal 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+    }
+
+    /* Text fade-up */
+    .fade-up {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 1s;
+    }
+
+    .fade-up.delay-1 {
+    animation-delay: 1.2s;
+    }
+
+    /* Keyframes */
+    @keyframes logoReveal {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+    }
+
+    @keyframes badgeReveal {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    }
+
+    @keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    /* Shimmer badge base */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    110deg,
+    rgba(14, 165, 233, 0.15) 40%,
+    rgba(34, 197, 94, 0.35) 50%,
+    rgba(14, 165, 233, 0.15) 60%
+  );
+  color: var(--accent);
+}
+
+    /* Shimmer animation overlay */
+    .shimmer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.35) 50%,
+        transparent 70%
+    );
+    animation: shimmerMove 3.5s ease-in-out infinite;
+    }
+
+    /* Keyframes */
+    @keyframes shimmerMove {
+    0% {
+        left: -150%;
+    }
+    60% {
+        left: 150%;
+    }
+    100% {
+        left: 150%;
+    }
+    }
+
+    /* Profile picture style */
+  .profile-pic {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(34, 197, 94, 0.6);
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+    <div>
+    <div class="brand-row" style="display:flex; align-items:center; gap:15px; margin-bottom:20px;">
+        <img src="ram101.jpg" alt="Ramprasad Suthi" class="profile-pic logo-animate">
+        <span class="badge badge-animate shimmer">Full Stack Development • AI & Automation Excellence</span>
+    </div>
+
+    <h1 class="fade-up">Ramprasad Suthi</h1>
+    <p class="fade-up delay-1">
+        Managing Director – <strong>MR Technologies</strong> | Founder – Medha XL<br>
+        25+ years of experience in Quality Engineering, Automation, Agile leadership,
+        and building industry-ready talent.
+    </p>
+    </div>
+    <div class="hero-card">
+      <p><strong>MR Technologies</strong></p>
+      <p>AI Automation • Full-Stack Development • Data Analytics • QA Engineering</p>
+      <p>Daba Gardens, Visakhapatnam</p>
+    </div>
+  </div>
+</header>
+
+<section>
+  <h2>Professional Summary</h2>
+  <p>
+    I am a seasoned IT leader with over <strong>25 years of global industry experience</strong>
+    across Telecom, Media, and Enterprise platforms. My career spans hands-on engineering,
+    QA leadership, and building scalable training ecosystems.
+  </p>
+  <p>
+    Today, I focus on bridging the gap between academia and industry through
+    <strong>AI-powered, job-oriented training programs</strong> and mentoring professionals
+    to succeed in fast-evolving technology roles.
+  </p>
+</section>
+
+<section>
+  <h2>MR Technologies – Leadership & Vision</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Managing Director – MR Technologies</h3>
+      <div class="meta">May 2025 – Present | Daba Gardens, Visakhapatnam</div>
+      <ul>
+        <li>Leading <strong>MR Technologies</strong> as a next-generation skill development and incubation hub.</li>
+        <li>Delivering AI Automation, Full-Stack Development, Data Analytics, and QA programs.</li>
+        <li>Building Admin Portals, Student Dashboards, LMS, and AI-driven learning platforms.</li>
+        <li>Partnering with colleges and enterprises to enable internships, projects, and placements.</li>
+      </ul>
+    </div>
+      <ul>
+        <li>Co-founded MR Technologies focusing on AI, Full-Stack, Automation & Analytics.</li>
+        <li>Designed industry-aligned programs with live projects and internships.</li>
+        <li>Driving AI adoption in education and enterprise training.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Founder & Head of Training – Medha XL</h3>
+      <div class="meta">Jan 2019 – Present | Hyderabad</div>
+      <ul>
+        <li>Trained 7,000+ students across 100+ batches.</li>
+        <li>Created transformation programs in Java, Python, Automation & Agile.</li>
+        <li>Focused on real-world frameworks and career outcomes.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Corporate Experience</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>CA Technologies</h3>
+      <div class="meta">Manager – Software Engineering & QA | 2006 – 2018</div>
+      <p>
+        Led enterprise QA strategy, automation frameworks, Agile delivery,
+        and multi-product releases across global teams.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Ness Technologies</h3>
+      <div class="meta">QA Lead | 2003 – 2006</div>
+      <p>Managed QA delivery, estimations, and process improvements.</p>
+    </div>
+
+    <div class="card">
+      <h3>Quark Media House</h3>
+      <div class="meta">QA Engineer | 2002 – 2003</div>
+      <p>Functional testing and defect management for publishing platforms.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Skills & Expertise</h2>
+  <div class="skills">
+    <span>Generative AI</span><span>Prompt Engineering</span><span>Automation Testing</span>
+    <span>Selenium</span><span>Java</span><span>Python</span><span>API Testing</span>
+    <span>Agile & SAFe</span><span>DevOps</span><span>Jenkins</span>
+    <span>SQL</span><span>Power BI</span><span>Quality Engineering</span>
+  </div>
+</section>
+
+<section>
+  <h2>Certifications & Education</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Certifications</h3>
+      <ul>
+        <li>Certified Scrum Master (CSM)</li>
+        <li>SAFe Agilist</li>
+        <li>ITIL Foundation</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Education</h3>
+      <ul>
+        <li>MCA – Sri Venkateswara University</li>
+        <li>B.Sc Computer Science – Mrs. A.V.N College</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <div class="card">
+    <p><strong>Email:</strong> ramprasadsuthi@gmail.com</p>
+    <p><strong>Phone:</strong> +91 99894 43915</p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ramprasads1/" target="_blank">linkedin.com/in/ramprasads1</a></p>
+    <p><strong>Website:</strong> <a href="https://www.medhatest.com" target="_blank">www.medhatest.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Ramprasad Suthi · Technology Leadership · AI & Automation</p>
+</footer>
+
+</body>
+</html>
